@@ -1,11 +1,21 @@
-// forum.page.ts
-
 import { Component, OnInit } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.page.html',
   styleUrls: ['./forum.page.scss'],
+  animations: [
+    trigger('postAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-20px)' }),
+        animate(
+          '300ms ease-out',
+          style({ opacity: 1, transform: 'translateY(0)' })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class ForumPage implements OnInit {
   postContent: string = '';

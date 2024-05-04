@@ -37,7 +37,7 @@
     </ion-card>
   </div>
   <!-- Display Posts -->
-  <ion-card *ngFor="let post of posts" class="posted-cards">
+  <ion-card *ngFor="let post of posts" class="posted-cards" [@postAnimation]>
     <div class="posted-card-container">
       <div class="avatar-container">
         <ion-avatar>
