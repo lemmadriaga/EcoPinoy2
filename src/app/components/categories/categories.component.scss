@@ -1,0 +1,91 @@
+
+:host {
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 1rem;
+  }
+  
+  
+  ion-grid {
+    width: 100%;
+    height: auto;
+  }
+  
+  .grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    align-items: center;
+  }
+  
+  ion-card {
+    width: 100%;
+    background: transparent;
+    //border-radius: 50%;
+    box-shadow: none;
+    border: solid;
+    border-color: #77D600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: static;
+    margin: 20px auto; /* Center the card horizontally */
+  }
+  
+  
+  .card-label {
+    text-align: center;
+    margin-top: 0.2rem; /* Adjust the value as desired */
+    width: 100%;
+  }
+  
+  @media (max-width: 767px) {
+    :host {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+  
+    ion-card {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .card-icon {
+      font-size: 2rem;
+      color: white;
+    }
+  
+    .card-label {
+      font-size: 0.8rem;
+      margin-top: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-label {
+      bottom: -2rem;
+    }
+  
+    .card-icon {
+      font-size: -1rem;
+      color: white;
+    }
+  
+  }
+  
+  @media (max-width: 360px) {
+    .card-label {
+      bottom: -2.5rem;
+    }
+  
+    .card-icon {
+      font-size: -1.5rem;
+      color: white;
+    }
+  }
+  

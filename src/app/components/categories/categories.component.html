@@ -1,0 +1,12 @@
+<ion-grid>
+  <ion-row *ngFor="let row of gridData">
+    <ion-col size="3" *ngFor="let item of row">
+      <ion-card (click)="handleCardClick(item)" >
+        <button (click)="navigateToPage(item.page)">
+          <img [src]="item.icon" alt="Icon" class="card-icon">
+        </button>
+      </ion-card>
+      <div class="card-label">{{ item.label }}</div>      
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button>
+        <img src="../assets/EcoPinoy_Logo.png" class="image1" alt="">
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button id="click-trigger">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding">You don't have any notification</ion-content>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <strong>What's up, Lemuel!</strong>
+    <span class="sub-header">CATEGORIES</span>
+    <app-categories></app-categories>
+  </div>
+  
+  <div class="event">
+    <div class="container2">
+      <strong>Daily Challenge</strong>
+      <a (click)="goToOtherPage()">
+        <span class="view-more1">View More >></span>
+      </a>
+      <app-task></app-task>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="container3">
+      <strong>What's new?</strong>
+      <a (click)="goToOtherPage()">
+        <span class="view-more2">View More >></span>
+      </a>
+      <app-slider></app-slider>
+    </div>
+  </div>
+
+
+
+</ion-content>
