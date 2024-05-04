@@ -1,13 +1,63 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>forum</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">forum</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Post Form -->
+
+  <div class="forum-kinda-header">
+    <img
+      src="../assets/EcoPinoy_Logo.png"
+      class="EcoPinoyImage"
+      alt="epimage"
+    />
+    <span class="forum-text">Public Forum</span>
+  </div>
+  <div>
+    <ion-card class="post-form">
+      <ion-card-content>
+        <div class="input-container">
+          <div class="user-profile">
+            <!-- User profile picture -->
+            <ion-avatar>
+              <img [src]="userProfilePic" alt="Profile Picture" />
+            </ion-avatar>
+          </div>
+          <!-- Textarea for post content -->
+          <ion-textarea
+            [(ngModel)]="postContent"
+            placeholder="We want to hear your story! Share your experience!"
+            spellcheck="false"
+          ></ion-textarea>
+          <!-- Paper plane icon for post button -->
+          <ion-icon
+            name="paper-plane"
+            size="large"
+            (click)="submitPost()"
+            color="success"
+          ></ion-icon>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <!-- Display Posts -->
+  <ion-card *ngFor="let post of posts" class="posted-cards">
+    <div class="posted-card-container">
+      <div class="avatar-container">
+        <ion-avatar>
+          <img class="users-pic" [src]="userProfilePic" alt="Profile Picture" />
+        </ion-avatar>
+      </div>
+      <div class="posted-card-main">
+        <span class="Username">Kapares Romnick</span>
+
+        <ion-card-content class="post"> {{ post.content }} </ion-card-content>
+        <span class="date-posted">{{ post.date }}</span>
+
+        <ion-icon
+          name="heart"
+          (click)="likePost(post)"
+          class="like-button"
+          [name]="post.liked ? 'heart' : 'heart-outline'"
+          [color]="post.liked ? 'danger' : 'medium'"
+        ></ion-icon>
+      </div>
+    </div>
+  </ion-card>
 </ion-content>
