@@ -27,8 +27,8 @@
     background: transparent;
     //border-radius: 50%;
     box-shadow: none;
-    border: solid;
-    border-color: transparent;
+    border: 1px solid #77d600;
+    //border-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@
   
   .card-label {
     text-align: center;
-    margin-top: 0.2rem; /* Adjust the value as desired */
+    margin-top: 0.1rem; /* Adjust the value as desired */
     width: 100%;
   }
   
