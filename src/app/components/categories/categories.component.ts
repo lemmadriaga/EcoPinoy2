@@ -27,10 +27,10 @@ export class CategoriesComponent {
  
   gridData: GridItem[][] = [
     [
-      { icon:  "../assets/--", label: 'Challenge', page: 'challenge' },
-      { icon: '../assets/--', label: 'Learning Center ', page: 'public-forum' },
-      { icon: '../assets/--', label: 'Public Forum', page: 'public-forum' },
-      { icon: '../assets/--', label: 'Reward', page: 'reward' }
+      { icon:  "../assets/ICON_2.png", label: 'Challenge', page: 'challenge' },
+      { icon: '../assets/ICON_3.png', label: 'Learning Center ', page: 'public-forum' },
+      { icon: '../assets/ICON_1.png', label: 'Public Forum', page: 'public-forum' },
+      { icon: '../assets/ICON_4.png', label: 'Reward', page: 'reward' }
     ],
 
   ];                                              
@@ -46,13 +46,13 @@ export class CategoriesComponent {
     if (page === '') {
       this.router.navigateByUrl('/tabs/');
     }
-    if (page === 'laundry-repair') {
+    if (page === '') {
       this.router.navigateByUrl('/tabs/');
     }
-    if (page === 'clogged-drains') {
+    if (page === '') {
       this.router.navigateByUrl('/tabs/');
     }
-    if (page === 'plumbing') {
+    if (page === '') {
       this.router.navigateByUrl('/tabs/');
     }
     
