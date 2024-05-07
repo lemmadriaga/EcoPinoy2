@@ -45,11 +45,13 @@ export class LoginPage implements AfterViewInit, OnInit {
       email :['', [
         Validators.required, 
         Validators.email,
-        Validators.pattern("[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$")
+        Validators.pattern("")
+        //[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$
       ]], 
       password :['', [
       Validators.required, 
-      Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[0-8])(?=.*[A-Z])")
+      Validators.pattern("") 
+      //(?=.*\d)(?=.*[a-z])(?=.*[0-8])(?=.*[A-Z])
 
       ]]
     })
@@ -57,11 +59,13 @@ export class LoginPage implements AfterViewInit, OnInit {
       email :['', [
         Validators.required, 
         Validators.email,
-        Validators.pattern("[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$")
+        Validators.pattern("")
+        //[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$
       ]], 
       password :['', [
       Validators.required, 
-      Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[0-8])(?=.*[A-Z])")
+      Validators.pattern("") 
+      //(?=.*\d)(?=.*[a-z])(?=.*[0-8])(?=.*[A-Z])
 
       ]]
     })
