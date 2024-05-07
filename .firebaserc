@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ecopinoy-6614e": {
+      "hosting": {
+        "app": [
+          "ecopinoy-6614e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ecopinoy-6614e"
+  }
+}

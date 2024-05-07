@@ -7,18 +7,31 @@
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
-        <form class="sign-in-form">
+        <form [formGroup]="loginForm" novalidate class="sign-in-form">
           <ion-img src="./assets/EcoPinoy_Logo.png" class="image1"></ion-img>
           <h2 class="title">Sign in</h2>
-          <div class="input-field" >
-            <ion-icon name="person-circle-outline" class="icon-left" ></ion-icon>
-            <ion-input type="text" placeholder="Username" class=".input-with-icon"></ion-input>
+          <div class="input-field">
+            <ion-icon name="mail"></ion-icon>
+            <ion-input formControlName="email" type="text" placeholder="Email" class=".input-with-icon"></ion-input>
+          </div>
+          <div *ngIf="loginForm.controls?.['email'].touched && loginForm.controls?.['email'].invalid">
+            <ion-text *ngIf="errorControl['email'].errors?.['required']">
+              Email is required
+            </ion-text>
+            <ion-text *ngIf="errorControl['email'].errors?.['pattern']">
+              Email should be valid
+            </ion-text>
           </div>
           <div class="input-field">
             <ion-icon name="lock-closed-outline" class="icon-left"></ion-icon>
-            <ion-input type="password" placeholder="Password" class=".input-with-icon"></ion-input>
+            <ion-input formControlName="password" type="password" placeholder="Password" class=".input-with-icon"></ion-input>
           </div>
-          <button type="submit" class="btn solid" (click)="tabs()">Login</button>
+          <div *ngIf="loginForm.controls?.['password'].touched && loginForm.controls?.['password'].invalid">
+            <ion-text *ngIf="errorControl['password'].errors?.['required']">
+              Password is required
+            </ion-text>
+          </div>
+          <button type="submit" class="btn solid" (click)="signIn()">Login</button>
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -36,22 +49,47 @@
           </div>
         </form>
 
-        <form class="sign-up-form">
+        <form [formGroup]="regForm" novalidate class="sign-up-form">
           <ion-img src="./assets/EcoPinoy_Logo.png" class="image2"></ion-img>
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <ion-icon name="person"></ion-icon>
-            <ion-input type="text" placeholder="Username" class=".input-with-icon"></ion-input>
+            <ion-input formControlName="username" type="text" placeholder="Username" class=".input-with-icon"></ion-input>
+          </div>
+          <div *ngIf="regForm.controls?.['username'].touched && regForm.controls?.['username'].invalid">
+            <ion-text *ngIf="errorControl['username'].errors?.['required']">
+              Username is required
+            </ion-text>
           </div>
           <div class="input-field">
             <ion-icon name="mail"></ion-icon>
-            <ion-input type="text" placeholder="Email" class=".input-with-icon"></ion-input>
+            <ion-input formControlName="email" type="text" placeholder="Email" class=".input-with-icon"></ion-input>
+          </div>
+          <div *ngIf="regForm.controls?.['email'].touched && regForm.controls?.['email'].invalid">
+            <ion-text *ngIf="errorControl['email'].errors?.['required']">
+              Email is required
+            </ion-text>
+            <ion-text *ngIf="errorControl['email'].errors?.['pattern']">
+              Email should be valid
+            </ion-text>
           </div>
           <div class="input-field">
             <ion-icon name="lock-closed"></ion-icon>
-            <ion-input type="password" placeholder="Password" class=".input-with-icon"></ion-input>
+            <ion-input formControlName="password" type="password" placeholder="Password" class=".input-with-icon"></ion-input>
           </div>
-          <button type="submit" class="btn solid">Sign up</button>
+          <div *ngIf="regForm.controls?.['password'].touched && regForm.controls?.['password'].invalid">
+            <ion-text *ngIf="errorControl['password'].errors?.['required']">
+              Password is required
+            </ion-text>
+            <ion-text *ngIf="errorControl['password'].errors?.['pattern']">
+              Password must atleast have:  <br>
+              - One Character<br>
+              - One Capital Letter <br>
+              - One Number<br>
+              - Contain 8 digit
+            </ion-text>
+          </div>
+          <button (click)="signUp()" type="submit" class="btn solid">Sign up</button>
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
