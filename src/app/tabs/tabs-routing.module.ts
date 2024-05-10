@@ -30,7 +30,11 @@ const routes: Routes = [
         pathMatch: 'full'
       },
     ]
+  },  {
+    path: 'quiz',
+    loadChildren: () => import('./quiz/quiz.module').then( m => m.QuizPageModule)
   },
+
   
 
 ];

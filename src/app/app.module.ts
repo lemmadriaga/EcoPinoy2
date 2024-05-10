@@ -18,7 +18,7 @@ import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule,
-    AngularFireModule, AngularFireAuthModule, AngularFireModule.initializeApp(environment.firebaseConfig),],
+    AngularFireModule, AngularFireAuthModule, AngularFireModule.initializeApp(environment.firebaseConfig), provideFirebaseApp(() => initializeApp({"projectId":"ecopinoy-6614e","appId":"1:773003487826:web:76e30393f80c65325e4d8b","storageBucket":"ecopinoy-6614e.appspot.com","apiKey":"AIzaSyAHxqzd-yFISMgj0il54Cgqy8EL9xPf7I8","authDomain":"ecopinoy-6614e.firebaseapp.com","messagingSenderId":"773003487826","measurementId":"G-7V18ZPJ41D"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideStorage(() => getStorage()),],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   

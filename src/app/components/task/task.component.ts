@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonicSlides } from '@ionic/angular';
 
 @Component({
@@ -10,12 +11,16 @@ import { IonicSlides } from '@ionic/angular';
   imports: [CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
 })
-export class taskComponent  implements OnInit {
+export class taskComponent implements OnInit {
  
   @Input() slides: any[] =[];
   swiperModules = [IonicSlides];
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  quiz1(){
+    this.router.navigateByUrl('/tabs/quiz');
+  }
 
   ngOnInit() {}
 
