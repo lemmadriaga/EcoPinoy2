@@ -1,0 +1,92 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+ion-header{
+  background: #f4f4f4;
+  
+}
+ion-toolbar {
+  --background: var(--ion-background-color, --td-bg);
+  padding: 1rem 0.3rem;
+  padding-bottom: 0;
+
+  ion-icon,
+  i {
+    font-weight: lighter;
+    color: var(--ion-secondary-text-color);
+    font-size: 1.66rem;
+  }
+
+  ion-button.search-btn {
+    margin-right: 0.2rem;
+  }
+}
+.image1{
+  width: 150px;
+  height: auto;
+}
+.locked{
+  filter: grayscale(100%);
+}
+
+ion-grid{
+  h1{
+    font-weight: 700;
+  }
+}
+ion-card {
+  height: 100px; /* Adjust the height as needed */
+  margin: 10px; /* Adjust the margin as needed */
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.unclickable {
+  pointer-events: none;
+  opacity: 0.6; /* Optional: Adjust the opacity to visually indicate the locked state */
+}
+
+
+ion-card-content {
+  padding: 10px; /* Adjust the padding as needed */
+  
+}
+
+ion-content {
+  --ion-background-color: #f4f4f4; /* Content background color */
+}
+
+ion-grid {
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+ion-row {
+  justify-content: center; /* Center the columns */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 576px) {
+  ion-col {
+    size: 12;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  ion-col {
+    size: 6;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  ion-col {
+    size: 4;
+  }
+}
+
+@media (min-width: 993px) {
+  ion-col {
+    size: 3;
+  }
+}

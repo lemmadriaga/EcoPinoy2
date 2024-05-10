@@ -24,7 +24,7 @@
 
 <ion-content [fullscreen]="true">
   <div id="container">
-    <strong>What's up, Lemuel!</strong>
+    <strong>What's up, {{ username }}</strong>
     <span class="sub-header">CATEGORIES</span>
     <app-categories></app-categories>
   </div>
@@ -42,9 +42,7 @@
   <div class="event">
     <div class="container3">
       <strong>What's new?</strong>
-      <a (click)="goToOtherPage()">
-        <span class="view-more2">View More >></span>
-      </a>
+
       <app-slider></app-slider>
     </div>
   </div>

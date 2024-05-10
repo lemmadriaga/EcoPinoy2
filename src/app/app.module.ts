@@ -3,24 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Add this line
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getDatabase, provideDatabase } from '@angular/fire/database';
-import { getMessaging, provideMessaging } from '@angular/fire/messaging';
-import { getStorage, provideStorage } from '@angular/fire/storage';
-import { AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule,
-    AngularFireModule, AngularFireAuthModule, AngularFireModule.initializeApp(environment.firebaseConfig), provideFirebaseApp(() => initializeApp({"projectId":"ecopinoy-6614e","appId":"1:773003487826:web:76e30393f80c65325e4d8b","storageBucket":"ecopinoy-6614e.appspot.com","apiKey":"AIzaSyAHxqzd-yFISMgj0il54Cgqy8EL9xPf7I8","authDomain":"ecopinoy-6614e.firebaseapp.com","messagingSenderId":"773003487826","measurementId":"G-7V18ZPJ41D"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideStorage(() => getStorage()),],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig), // Initialize AngularFireModule with your firebaseConfig
+    AngularFireAuthModule, // Add AngularFireAuthModule
+    AngularFirestoreModule // Add AngularFirestoreModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
-  
 })
 export class AppModule {}

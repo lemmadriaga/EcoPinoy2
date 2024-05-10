@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button>
+        <img src="../assets/EcoPinoy_Logo.png" class="image1" alt="">
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button id="click-trigger">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding">You don't have any notification</ion-content>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <h1>DAILY CHALLENGES</h1>
+    <ion-row>
+      
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card class="card-1" (click)="quiz1()">
+          <ion-card-content>
+            <img src="../assets/11.png" alt="Image 1">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card class="card-2" (click)="quiz2()">
+          <ion-card-content>
+            <img src="../assets/22.png" alt="Image 2">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card class="card-3" (click)="quiz3()">
+          <ion-card-content>
+            <img src="../assets/33.png" alt="Image 3">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card class="card-4" (click)="quiz4()">
+          <ion-card-content>
+            <img src="../assets/44.png" alt="Image 4">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card class="card-5" (click)="quiz5()">
+          <ion-card-content>
+            <img src="../assets/55.png" alt="Image 5">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

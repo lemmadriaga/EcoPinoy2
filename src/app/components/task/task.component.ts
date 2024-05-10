@@ -21,6 +21,18 @@ export class taskComponent implements OnInit {
   quiz1(){
     this.router.navigateByUrl('/tabs/quiz');
   }
+  quiz2(){
+    this.router.navigateByUrl('/tabs/quiz2')
+  }
+  quiz3(){
+    this.router.navigateByUrl('/tabs/quiz3')
+  }
+  quiz4(){
+    this.router.navigateByUrl('/tabs/quiz4')
+  }
+  quiz5(){
+    this.router.navigateByUrl('/tabs/quiz5')
+  }
 
   ngOnInit() {}
 

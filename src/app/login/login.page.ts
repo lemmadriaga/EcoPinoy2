@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AthenticationService } from '@app/athentication.service';
+import { FirestoreService } from '@app/firestore.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginPage implements AfterViewInit, OnInit {
     public router: Router,
     public formBuilder: FormBuilder,
     public loadingCtrl: LoadingController,
-    public authService: AthenticationService
+    public authService: AthenticationService,
+    public firestoreService: FirestoreService,
   ) {}
 
   ngAfterViewInit() {
@@ -91,25 +93,37 @@ export class LoginPage implements AfterViewInit, OnInit {
   async signUp() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
+    
     if (this.regForm?.valid) {
-      const user = await this.authService
-        .registerUser(
-          this.regForm.value.email,
-          this.regForm.value.password,
-          this.regForm.value.username
-        )
-        .catch((error) => {
-          console.log(error);
-          loading.dismiss();
-        });
-      if (user) {
+      // Register user and retrieve user ID
+      const userId = await this.authService.registerUser(
+        this.regForm.value.email,
+        this.regForm.value.password,
+        this.regForm.value.username
+      ).catch((error) => {
+        console.log(error);
         loading.dismiss();
-        this.router.navigate(['/tabs']);
+      });
+  
+      if (userId) {
+        // Update user's unlocking state with initial data
+        const defaultUnlockingState = { 
+          module1: true, 
+          module2: false, 
+          module3: false,
+          module4: false, 
+          module5: false };
+        await this.firestoreService.updateUserUnlockingState(userId, defaultUnlockingState);
+  
+        // Navigate to learning center page or any other page
+        this.router.navigate(['/tabs/learning-center']);
+        loading.dismiss();
       } else {
         console.log('Provide correct values');
       }
     }
   }
+  
   async signIn() {
     const loading = await this.loadingCtrl.create();
     await loading.present();

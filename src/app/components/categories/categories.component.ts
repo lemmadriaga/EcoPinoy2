@@ -28,7 +28,7 @@ export class CategoriesComponent {
   gridData: GridItem[][] = [
     [
       { icon:  "../assets/ICON_2.png", label: 'Challenge', page: 'challenge' },
-      { icon: '../assets/ICON_3.png', label: 'Learning Center ', page: 'public-forum' },
+      { icon: '../assets/ICON_3.png', label: 'Learning Center ', page: 'learning-center' },
       { icon: '../assets/ICON_1.png', label: 'Public Forum', page: 'public-forum' },
       { icon: '../assets/ICON_4.png', label: 'Reward', page: 'reward' }
     ],
@@ -43,17 +43,17 @@ export class CategoriesComponent {
   }
 
   navigateToPage(page: string) {
-    if (page === '') {
-      this.router.navigateByUrl('/tabs/');
+    if (page === 'challenge') {
+      this.router.navigateByUrl('/tabs/challenge');
     }
-    if (page === '') {
-      this.router.navigateByUrl('/tabs/');
+    if (page === 'public-forum') {
+      this.router.navigateByUrl('/tabs/forum');
     }
-    if (page === '') {
-      this.router.navigateByUrl('/tabs/');
+    if (page === 'reward') {
+      this.router.navigateByUrl('/tabs/rewards');
     }
-    if (page === '') {
-      this.router.navigateByUrl('/tabs/');
+    if (page === 'learning-center') {
+      this.router.navigateByUrl('/tabs/learning-center');
     }
     
   }

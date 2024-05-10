@@ -64,11 +64,11 @@ setOpen(isOpen: boolean) {
   if (isOpen) {
     this.isModalOpen = true;
   } else {
-    this.total = 0; // This line resets the total score
+    this.total = 0; 
     this.isModalOpen = false;
 
     setTimeout(() => {
-      this.hasQuizStarted = false; // Corrected assignment
+      this.hasQuizStarted = false; 
     }, 5);
   }
 }
