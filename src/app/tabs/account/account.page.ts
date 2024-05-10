@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
+import { AthenticationService } from '@app/athentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -15,10 +16,21 @@ export class AccountPage {
     location: 'Red Bldg, Universe 2, Golden Country Homes, Alangilan, Batangas',
   };
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    private authService: AthenticationService,
+    private router: Router
+  ) {}
+
+  async logout() {
+    await this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 
   openEditProfile() {
-    this.navCtrl.navigateForward('tabs/edit-profile', { state: { user: { ...this.user } } });
+    this.navCtrl.navigateForward('tabs/edit-profile', {
+      state: { user: { ...this.user } },
+    });
   }
 
   ionViewWillEnter() {
@@ -27,8 +39,4 @@ export class AccountPage {
       this.user = { ...updatedUser };
     }
   }
-
-
-
-
 }

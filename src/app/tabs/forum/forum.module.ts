@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ForumPageRoutingModule } from './forum-routing.module';
 
 import { ForumPage } from './forum.page';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ForumPageRoutingModule
+    ForumPageRoutingModule,
+    AngularFireAuthModule,
   ],
-  declarations: [ForumPage]
+  declarations: [ForumPage],
 })
 export class ForumPageModule {}
