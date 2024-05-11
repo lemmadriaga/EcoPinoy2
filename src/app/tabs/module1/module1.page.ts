@@ -1,6 +1,6 @@
 // module1.page.ts
 import { Component } from '@angular/core';
-import { ModuleStateService } from '@app/module-state.service';
+
 
 @Component({
   selector: 'app-module1',
@@ -8,9 +8,7 @@ import { ModuleStateService } from '@app/module-state.service';
   styleUrls: ['./module1.page.scss'],
 })
 export class Module1Page {
-  constructor(private moduleStateService: ModuleStateService) { }
+  constructor( ) { }
 
-  unlockNextModule() {
-    this.moduleStateService.unlockNextModule();
-  }
+
 }
