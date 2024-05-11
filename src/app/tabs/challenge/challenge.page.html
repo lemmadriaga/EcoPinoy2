@@ -28,38 +28,24 @@
     <ion-row>
       
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card class="card-1" (click)="quiz1()">
-          <ion-card-content>
-            <img src="../assets/11.png" alt="Image 1">
-          </ion-card-content>
+        <ion-card class="card-1" (click)="navigateToQuiz('quiz')" [ngClass]="{ 'locked1': !isQuizUnlocked('quiz') }" [style.background-image]="'url(../assets/11.png)'">
+
         </ion-card>
       </ion-col>
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card class="card-2" (click)="quiz2()">
-          <ion-card-content>
-            <img src="../assets/22.png" alt="Image 2">
-          </ion-card-content>
+        <ion-card class="card-2" (click)="navigateToQuiz('quiz2')" [ngClass]="{ 'locked2': !isQuizUnlocked('quiz2') }" [style.background-image]="'url(../assets/22.png)'">
         </ion-card>
       </ion-col>
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card class="card-3" (click)="quiz3()">
-          <ion-card-content>
-            <img src="../assets/33.png" alt="Image 3">
-          </ion-card-content>
+        <ion-card class="card-3" (click)="navigateToQuiz('quiz3')" [ngClass]="{ 'locked3': !isQuizUnlocked('quiz3') }" [style.background-image]="'url(../assets/33.png)'">
         </ion-card>
       </ion-col>
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card class="card-4" (click)="quiz4()">
-          <ion-card-content>
-            <img src="../assets/44.png" alt="Image 4">
-          </ion-card-content>
+        <ion-card class="card-4" (click)="navigateToQuiz('quiz4')" [ngClass]="{ 'locked4': !isQuizUnlocked('quiz4') }" [style.background-image]="'url(../assets/44.png)'">
         </ion-card>
       </ion-col>
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card class="card-5" (click)="quiz5()">
-          <ion-card-content>
-            <img src="../assets/55.png" alt="Image 5">
-          </ion-card-content>
+        <ion-card class="card-5" (click)="navigateToQuiz('quiz5')" [ngClass]="{ 'locked5': !isQuizUnlocked('quiz5') }" [style.background-image]="'url(../assets/55.png)'">
         </ion-card>
       </ion-col>
     </ion-row>

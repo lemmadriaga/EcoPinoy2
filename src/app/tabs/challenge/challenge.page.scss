@@ -40,7 +40,21 @@ ion-card {
 }
 
 
-
+.locked1{
+  filter: grayscale(80%);
+}
+.locked2{
+  filter: grayscale(85%);
+}
+.locked3{
+  filter: grayscale(90%);
+}
+.locked4{
+  filter: grayscale(95%);
+}
+.locked5{
+  filter: grayscale(100%);
+}
 
 
 ion-card-content {

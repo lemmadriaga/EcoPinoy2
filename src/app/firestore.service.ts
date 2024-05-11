@@ -16,4 +16,12 @@ export class FirestoreService {
   updateUserUnlockingState(userId: string, unlockingState: any): Promise<void> {
     return this.firestore.collection('userModules').doc(userId).set(unlockingState, { merge: true });
   }
+
+  getUserUnlockingState2(userId: string): Observable<any> {
+    return this.firestore.collection('userQuiz').doc(userId).valueChanges();
+  }
+
+  updateUserUnlockingState2(userId: string, unlockingState: any): Promise<void> {
+    return this.firestore.collection('userQuiz').doc(userId).set(unlockingState, { merge: true });
+  }
 }

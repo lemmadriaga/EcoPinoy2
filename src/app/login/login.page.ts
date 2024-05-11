@@ -114,10 +114,15 @@ export class LoginPage implements AfterViewInit, OnInit {
           module4: false, 
           module5: false };
         await this.firestoreService.updateUserUnlockingState(userId, defaultUnlockingState);
-  
-        // Navigate to learning center page or any other page
-        this.router.navigate(['/tabs/learning-center']);
+        const defaultUnlockingState2 = { 
+          quiz: true, 
+          quiz2: false, 
+          quiz3: false,
+          quiz4: false, 
+          quiz5: false };
+        await this.firestoreService.updateUserUnlockingState2(userId, defaultUnlockingState2);
         loading.dismiss();
+        this.router.navigate(['/tabs']);
       } else {
         console.log('Provide correct values');
       }

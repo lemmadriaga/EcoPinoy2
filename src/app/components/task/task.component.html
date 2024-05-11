@@ -1,31 +1,31 @@
 <swiper-container [slidesPerView] = "3" [centeredSlides] = "true" [loop] = false 
   [spaceBetween] = "20"  [autoplay] = "true" class="ion-margin-top">
   <swiper-slide>
-    <ion-card (click)="quiz1()">
+    <ion-card (click)="navigateToQuiz('quiz')" [ngClass]="{ 'locked1': !isQuizUnlocked('quiz') }" >
       <img src="../assets/1.png">
     </ion-card>
   </swiper-slide>
 
   <swiper-slide>
-    <ion-card (click)="quiz2()">
+    <ion-card (click)="navigateToQuiz('quiz2')" [ngClass]="{ 'locked2': !isQuizUnlocked('quiz2') }" >
       <img src="../assets/2.png">
     </ion-card>
   </swiper-slide>
 
   <swiper-slide>
-    <ion-card (click)="quiz3()">
+    <ion-card (click)="navigateToQuiz('quiz3')" [ngClass]="{ 'locked3': !isQuizUnlocked('quiz3') }" >
       <img src="../assets/3.png">
     </ion-card>
   </swiper-slide>
 
   <swiper-slide>
-    <ion-card (click)="quiz4()" >
+    <ion-card (click)="navigateToQuiz('quiz4')" [ngClass]="{ 'locked4': !isQuizUnlocked('quiz4') }" >
       <img src="../assets/4.png">
     </ion-card>
   </swiper-slide>
 
   <swiper-slide>
-    <ion-card (click)="quiz5()">
+    <ion-card (click)="navigateToQuiz('quiz5')" [ngClass]="{ 'locked5': !isQuizUnlocked('quiz5') }" >
       <img src="../assets/5.png">
     </ion-card>
   </swiper-slide>
