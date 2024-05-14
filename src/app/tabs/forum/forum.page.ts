@@ -1,7 +1,8 @@
-import { Component, OnInit, NgZone } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 import { AthenticationService } from '@app/athentication.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { trigger, transition, style, animate } from '@angular/animations';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-forum',
@@ -28,7 +29,7 @@ export class ForumPage implements OnInit {
   constructor(
     private authService: AthenticationService,
     private firestore: AngularFirestore,
-    private ngZone: NgZone
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
@@ -42,14 +43,13 @@ export class ForumPage implements OnInit {
       this.username = user.displayName || '';
     }
   }
-  async loadPosts() {
+
+  loadPosts() {
     this.firestore
       .collection('posts', (ref) => ref.orderBy('date', 'desc'))
-      .valueChanges()
+      .valueChanges({ idField: 'postId' })
       .subscribe((posts: any[]) => {
-        this.ngZone.run(() => {
-          this.posts = posts;
-        });
+        this.posts = posts;
       });
   }
 
@@ -65,6 +65,14 @@ export class ForumPage implements OnInit {
         });
         this.postContent = '';
       }
+      const toast = await this.toastController.create({
+        message: 'Posted',
+        duration: 3000,
+        position: 'top',
+        color: 'success',
+        icon: 'checkmark',
+      });
+      toast.present();
     }
   }
 

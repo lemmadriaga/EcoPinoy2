@@ -15,12 +15,12 @@ register();
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
-  standalone: true,  
-  imports: [IonicModule, SliderComponent, CategoriesComponent, taskComponent], 
+  standalone: true,
+  imports: [IonicModule, SliderComponent, CategoriesComponent, taskComponent],
 })
 export class HomePage implements OnInit {
   username: string;
-  
+
   slides: any[] = [];
 
   constructor(
@@ -28,8 +28,7 @@ export class HomePage implements OnInit {
     private authService: AthenticationService,
     private firestore: AngularFirestore,
     private ngZone: NgZone
-  ) { }
-
+  ) {}
 
   goToOtherPage() {
     this.router.navigateByUrl('/tabs/challenge');
@@ -37,7 +36,6 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.fetchUsername();
-
   }
   async fetchUsername() {
     const user = await this.authService.getProfile();

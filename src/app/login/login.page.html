@@ -1,8 +1,7 @@
 <ion-header [translucent]="true"></ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-  </ion-header>
+  <ion-header collapse="condense"> </ion-header>
 
   <div class="container">
     <div class="forms-container">
@@ -12,9 +11,16 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <ion-icon name="mail"></ion-icon>
-            <ion-input formControlName="email" type="text" placeholder="Email" class=".input-with-icon"></ion-input>
+            <ion-input
+              formControlName="email"
+              type="text"
+              placeholder="Email"
+              class=".input-with-icon"
+            ></ion-input>
           </div>
-          <div *ngIf="loginForm.controls?.['email'].touched && loginForm.controls?.['email'].invalid">
+          <div
+            *ngIf="loginForm.controls?.['email'].touched && loginForm.controls?.['email'].invalid"
+          >
             <ion-text *ngIf="errorControl['email'].errors?.['required']">
               Email is required
             </ion-text>
@@ -24,14 +30,24 @@
           </div>
           <div class="input-field">
             <ion-icon name="lock-closed-outline" class="icon-left"></ion-icon>
-            <ion-input formControlName="password" type="password" placeholder="Password" class=".input-with-icon"></ion-input>
+            <ion-input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+              class=".input-with-icon"
+            ></ion-input>
           </div>
-          <div *ngIf="loginForm.controls?.['password'].touched && loginForm.controls?.['password'].invalid">
+          <div
+            *ngIf="loginForm.controls?.['password'].touched && loginForm.controls?.['password'].invalid"
+          >
             <ion-text *ngIf="errorControl['password'].errors?.['required']">
               Password is required
             </ion-text>
           </div>
-          <button type="submit" class="btn solid" (click)="signIn()">Login</button>
+
+          <button type="submit" class="btn solid" (click)="signIn()">
+            Login
+          </button>
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -54,18 +70,32 @@
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <ion-icon name="person"></ion-icon>
-            <ion-input formControlName="username" type="text" placeholder="Username" class=".input-with-icon"></ion-input>
+            <ion-input
+              formControlName="username"
+              type="text"
+              placeholder="Username"
+              class=".input-with-icon"
+            ></ion-input>
           </div>
-          <div *ngIf="regForm.controls?.['username'].touched && regForm.controls?.['username'].invalid">
+          <div
+            *ngIf="regForm.controls?.['username'].touched && regForm.controls?.['username'].invalid"
+          >
             <ion-text *ngIf="errorControl['username'].errors?.['required']">
               Username is required
             </ion-text>
           </div>
           <div class="input-field">
             <ion-icon name="mail"></ion-icon>
-            <ion-input formControlName="email" type="text" placeholder="Email" class=".input-with-icon"></ion-input>
+            <ion-input
+              formControlName="email"
+              type="text"
+              placeholder="Email"
+              class=".input-with-icon"
+            ></ion-input>
           </div>
-          <div *ngIf="regForm.controls?.['email'].touched && regForm.controls?.['email'].invalid">
+          <div
+            *ngIf="regForm.controls?.['email'].touched && regForm.controls?.['email'].invalid"
+          >
             <ion-text *ngIf="errorControl['email'].errors?.['required']">
               Email is required
             </ion-text>
@@ -75,21 +105,38 @@
           </div>
           <div class="input-field">
             <ion-icon name="lock-closed"></ion-icon>
-            <ion-input formControlName="password" type="password" placeholder="Password" class=".input-with-icon"></ion-input>
+            <ion-input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+              class=".input-with-icon"
+            ></ion-input>
           </div>
-          <div *ngIf="regForm.controls?.['password'].touched && regForm.controls?.['password'].invalid">
+          <div
+            *ngIf="regForm.controls?.['password'].touched && regForm.controls?.['password'].invalid"
+          >
             <ion-text *ngIf="errorControl['password'].errors?.['required']">
               Password is required
             </ion-text>
             <ion-text *ngIf="errorControl['password'].errors?.['pattern']">
-              Password must atleast have:  <br>
-              - One Character<br>
-              - One Capital Letter <br>
-              - One Number<br>
+              Password must atleast have: <br />
+              - One Character<br />
+              - One Capital Letter <br />
+              - One Number<br />
               - Contain 8 digit
             </ion-text>
           </div>
-          <button (click)="signUp()" type="submit" class="btn solid">Sign up</button>
+          <div class="input-field">
+            <ion-icon name="locate"></ion-icon>
+            <ion-input
+              formControlName="location"
+              type="text"
+              placeholder="Location (Optional)"
+            ></ion-input>
+          </div>
+          <button (click)="signUp()" type="submit" class="btn solid">
+            Sign up
+          </button>
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -128,4 +175,3 @@
     </div>
   </div>
 </ion-content>
-

@@ -14,12 +14,14 @@ import { FirestoreService } from '@app/firestore.service';
 export class LoginPage implements AfterViewInit, OnInit {
   regForm: FormGroup;
   loginForm: FormGroup;
+  userProfilePic: string = '../assets/testpic.png';
+
   constructor(
     public router: Router,
     public formBuilder: FormBuilder,
     public loadingCtrl: LoadingController,
     public authService: AthenticationService,
-    public firestoreService: FirestoreService,
+    public firestoreService: FirestoreService
   ) {}
 
   ngAfterViewInit() {
@@ -64,6 +66,7 @@ export class LoginPage implements AfterViewInit, OnInit {
           //(?=.*\d)(?=.*[a-z])(?=.*[0-8])(?=.*[A-Z])
         ],
       ],
+      location: [''],
     });
     this.loginForm = this.formBuilder.group({
       email: [
@@ -93,34 +96,51 @@ export class LoginPage implements AfterViewInit, OnInit {
   async signUp() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
-    
+
     if (this.regForm?.valid) {
-      // Register user and retrieve user ID
-      const userId = await this.authService.registerUser(
-        this.regForm.value.email,
-        this.regForm.value.password,
-        this.regForm.value.username
-      ).catch((error) => {
-        console.log(error);
-        loading.dismiss();
-      });
-  
+      const photoURL = this.userProfilePic; // Placeholder URL for default profile picture
+      let location = 'Earth'; // Default location if not provided
+      if (this.regForm.value.location.trim() !== '') {
+        // If location is provided, use it
+        location = this.regForm.value.location;
+      } // Placeholder location
+      const userId = await this.authService
+        .registerUser(
+          this.regForm.value.email,
+          this.regForm.value.password,
+          this.regForm.value.username,
+          photoURL,
+          location
+        )
+        .catch((error) => {
+          console.log(error);
+          loading.dismiss();
+        });
+
       if (userId) {
         // Update user's unlocking state with initial data
-        const defaultUnlockingState = { 
-          module1: true, 
-          module2: false, 
+        const defaultUnlockingState = {
+          module1: true,
+          module2: false,
           module3: false,
-          module4: false, 
-          module5: false };
-        await this.firestoreService.updateUserUnlockingState(userId, defaultUnlockingState);
-        const defaultUnlockingState2 = { 
-          quiz: true, 
-          quiz2: false, 
+          module4: false,
+          module5: false,
+        };
+        await this.firestoreService.updateUserUnlockingState(
+          userId,
+          defaultUnlockingState
+        );
+        const defaultUnlockingState2 = {
+          quiz: true,
+          quiz2: false,
           quiz3: false,
-          quiz4: false, 
-          quiz5: false };
-        await this.firestoreService.updateUserUnlockingState2(userId, defaultUnlockingState2);
+          quiz4: false,
+          quiz5: false,
+        };
+        await this.firestoreService.updateUserUnlockingState2(
+          userId,
+          defaultUnlockingState2
+        );
         loading.dismiss();
         this.router.navigate(['/tabs']);
       } else {
@@ -128,7 +148,7 @@ export class LoginPage implements AfterViewInit, OnInit {
       }
     }
   }
-  
+
   async signIn() {
     const loading = await this.loadingCtrl.create();
     await loading.present();

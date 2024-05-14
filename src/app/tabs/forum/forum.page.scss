@@ -129,3 +129,14 @@ ion-card-content {
   background-color: transparent !important; /* Make the background transparent */
   font-size: 20px;
 }
+
+ion-toast {
+  --background: #d9d9dc;
+  --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  --color: #4b4a50;
+  --font-size: 30px;
+}
+
+ion-toast::part(message) {
+  font-size: 18px;
+}

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, ModalController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AthenticationService } from '@app/athentication.service';
 import { Router } from '@angular/router';
 
@@ -8,35 +10,46 @@ import { Router } from '@angular/router';
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
-export class AccountPage {
-  user = {
-    profilePhoto: '../assets/profile-pic.png',
-    name: 'Lemuel Madriaga',
-    email: 'lemmadriaga02@gmail.com',
-    location: 'Red Bldg, Universe 2, Golden Country Homes, Alangilan, Batangas',
-  };
+export class AccountPage implements OnInit {
+  user: any = {}; // Initialize user object
 
   constructor(
     private navCtrl: NavController,
+    private modalController: ModalController,
     private authService: AthenticationService,
-    private router: Router
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private firestore: AngularFirestore
   ) {}
 
-  async logout() {
-    await this.authService.logout();
-    this.router.navigate(['/login']);
-  }
-
-  openEditProfile() {
-    this.navCtrl.navigateForward('tabs/edit-profile', {
-      state: { user: { ...this.user } },
+  ngOnInit() {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        // Fetch additional user information from Firestore
+        this.firestore
+          .collection('userProfiles')
+          .doc(user.uid)
+          .valueChanges()
+          .subscribe((profile: any) => {
+            if (profile) {
+              this.user = {
+                profilePhoto: user.photoURL || '../assets/profile-pic.png', // Use user's photoURL or default profile picture
+                name: user.displayName || 'Anonymous', // Use user's displayName or 'Anonymous'
+                email: user.email || '',
+                location: profile.location || '',
+              };
+            }
+          });
+      }
     });
   }
 
-  ionViewWillEnter() {
-    const updatedUser = history.state.user;
-    if (updatedUser) {
-      this.user = { ...updatedUser };
+  async logout() {
+    try {
+      await this.authService.logout();
+      this.router.navigate(['/login']);
+    } catch (error) {
+      console.error('Error logging out:', error);
     }
   }
 }
