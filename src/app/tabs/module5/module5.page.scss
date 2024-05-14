@@ -1,0 +1,74 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+ion-header{
+  background: #ffff;
+  
+}
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+ion-toolbar {
+  --background: var(--ion-background-color, --td-bg);
+  padding: 1rem 0.3rem;
+  padding-bottom: 0;
+
+  ion-icon,
+  i {
+    font-weight: lighter;
+    color: var(--ion-secondary-text-color);
+    font-size: 1.66rem;
+  }
+
+  ion-button.search-btn {
+    margin-right: 0.2rem;
+  }
+}
+.image1{
+  width: 150px;
+  height: auto;
+}
+
+.congratulations{
+    text-align: center;
+    margin: 0 10px;
+
+    h1{
+        font-weight: 700;
+        color: #77D600;
+    }
+    p{
+        font-weight: 400;
+    }
+}
+
+.end-line{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 10px;
+
+    h1{
+        font-size: large;
+        font-weight: 700;
+        color: #1DA404;
+    }
+    p{
+        font-size: 13px;
+
+    }
+    button{
+        width: 80%;
+        height: 50px;
+        background-color: #77D600;
+        color: white;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 15px;
+
+    }
+}

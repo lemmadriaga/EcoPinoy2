@@ -1,13 +1,94 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>module3</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>
+      <div class="header-logo">
+        <img src="../assets/EcoPinoy_Logo.png" class="image1" alt="">
+      </div>
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button id="click-trigger">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding">You don't have any notification</ion-content>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">module3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  
+  <div class="congratulations">
+    <h1>Congratulations on completing EcoPinoy's Environmental Quiz 3!</h1>
+    <p>Let's dive deeper into the world of waste management and solidify your understanding of how you can become a Waste Warrior.</p>
+  </div>
+
+  <ion-card>
+    <img src="./assets/m1-3.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>The Power of Recycling</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Recycling is the heroic act of sorting waste materials like paper, plastic, glass, and metal so they can be reprocessed into new products. This reduces our reliance on virgin resources and helps conserve valuable materials. By becoming a recycling champion, you're contributing to a more sustainable future!</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m2-3.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Sorting for Success</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>While recycling is fantastic, it's important to sort correctly. Food residue on plastic containers can contaminate the entire recycling batch.  Make sure to rinse out containers before placing them in the recycling bin. Remember, a little effort goes a long way in ensuring successful recycling!</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m3-3.png" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Reduce, Reuse, Recycle - A Hierarchy of Action</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Reduce, Reuse, Recycle" is the waste warrior's motto! It prioritizes minimizing waste first: buy less, avoid single-use items, and choose products with minimal packaging. If you can't reduce, give items a new life by repairing, repurposing, borrowing, or sharing. Finally, recycle correctly when reduction and reuse aren't options. This hierarchy helps us send less waste to landfills and build a more sustainable waste management system.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m4-3.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Biodegradation - Nature's Recycling</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Biodegradable waste decomposes naturally, returning nutrients back to the environment. Food scraps, yard trimmings, and paper are all examples. Composting these materials creates nutrient-rich soil amendments, a fantastic alternative to chemical fertilizers!</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m5-3.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Be a Waste Minimization Master</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Every little bit counts! Bringing your own reusable shopping bag reduces the need for plastic bags, which often end up in landfills or pollute our oceans. By making small changes like this in your daily routine, you can significantly contribute to minimizing waste generation.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="end-line">
+    <h1>Remember, you have the power to be a Waste Warrior!</h1>
+    <p>This review module has provided a deeper understanding of waste management concepts. Keep exploring resources within the EcoPinoy app to discover more ways to reduce, reuse, and recycle.  Together, we can create a cleaner and more sustainable future!</p>
+    <button (click)="quiz()">Next Quiz</button>
+  </div>
+
 </ion-content>

@@ -1,13 +1,95 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>module4</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>
+      <div class="header-logo">
+        <img src="../assets/EcoPinoy_Logo.png" class="image1" alt="">
+      </div>
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button id="click-trigger">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding">You don't have any notification</ion-content>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">module4</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  
+  <div class="congratulations">
+    <h1>Congratulations on completing EcoPinoy's Environmental Quiz 4! </h1>
+    <p>Let's embark on a journey to become Water Wise Warriors by solidifying your understanding of water conservation.</p>
+  </div>
+
+  <!-- Repeated content block start -->
+  <ion-card>
+    <img src="./assets/m1-4.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Every Drop Counts</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>While water covers most of Earth's surface, only a tiny portion, about 10%, is freshwater readily available for drinking, sanitation, and other human uses. The rest is saline (saltwater) or locked away in glaciers and ice caps.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m2-4.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Where Does Our Water Go?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Many people assume showers are the biggest water guzzlers. However, flushing the toilet often takes the top spot.  Be mindful of leaks and consider installing low-flush toilets to conserve this precious resource.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m3-4.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Sustainable Water Management</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Sustainable water management involves using water wisely and finding alternative sources. Collecting rainwater for watering your garden is a fantastic example. This reduces reliance on treated tap water and puts rainwater to good use.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m4-4.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Water Pollution - A Threat to Our Treasure </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Water pollution is a serious threat to aquatic ecosystems and human health. Industrial waste, littering, and runoff from agricultural land containing pesticides and fertilizers are all major sources of water pollution.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m5-4.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Be a Water Wise Warrior - Every Action Counts! </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Water conservation is a collective effort. Taking shorter showers, fixing leaky faucets, and turning off the faucet while brushing your teeth are all easy ways to be a Water Wise Warrior and contribute to a sustainable future!</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="end-line">
+    <h1>Remember, every drop counts!</h1>
+    <p>This review module has provided a deeper understanding of water conservation practices. Explore more resources within the EcoPinoy app to discover additional ways to save water and protect this vital resource for generations to come. Together, we can ensure a future where water flows freely for all!</p>
+    <button (click)="quiz()">Next Quiz</button>
+  </div>
+
 </ion-content>

@@ -1,13 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>quiz5</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">quiz5</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<div *ngIf="!hasQuizStarted" class="start-quiz-container">
+  <div class="container">
+    <div class="title">
+      <h1>ECOQUIZ</h1>
+      <img src="./assets/chest.png" alt="">
+      <p>Ready to test your knowledge? <br>Click below to start!</p>
+    </div>
+  </div>
+  <button class="start-quiz-button" (click)="startQuiz()">Start Quiz</button>
+</div>
+
+
+<div *ngIf="hasQuizStarted" class="quiz-container">
+  <div *ngFor="let question of filteredQuestions" class="question-card">
+    <h2 class="question-title">{{ question.question }}</h2>
+    <ul class="answer-list">
+      <li *ngFor="let answer of question.answers" class="answer-item">
+        <label class="answer-label" [class.selected]="answer.selected">
+          <input type="radio" name="answerGroup" [value]="answer.text" (change)="checkAnswer(question.id, answer.text)">
+          <span class="answer-text">{{ answer.text }}</span>
+        </label>
+      </li>
+    </ul>
+    <div class="navigation-buttons">
+      <button class="prev-button" (click)="prevQuestion()" [disabled]="id === 1"><</button>
+      <button class="submit-button" [class.disabled]="id !== questions.length" [disabled]="id !== questions.length" (click)="setOpen(true)">Submit</button>
+      <button class="next-button" (click)="nextQuestion()" [disabled]="id === questions.length">></button>
+      
+    </div>
+  
+  </div>
+
+
+  <div *ngIf="isModalOpen" class="modal">
+    <div class="modal-content">
+      <h3 class="modal-title">Results</h3>
+      <p class="modal-text">You got {{ total }} / {{ questions.length }} correct.</p>
+      <button class="close-button" (click)="module()">Close</button>
+    </div>
+  </div>
+</div>

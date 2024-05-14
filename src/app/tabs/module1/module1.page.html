@@ -1,12 +1,95 @@
-<!-- module1.page.html -->
-<ion-header>
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
     <ion-title>
-      Module 1
+      <div class="header-logo">
+        <img src="../assets/EcoPinoy_Logo.png" class="image1" alt="">
+      </div>
     </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button id="click-trigger">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding">You don't have any notification</ion-content>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  
+  <div class="congratulations">
+    <h1>Congratulations on completing the EcoPinoy Environmental Quiz #1!</h1>
+    <p>Let's delve deeper into the topics you encountered and solidify your understanding.</p>
+  </div>
+
+  <!-- Repeated content block start -->
+  <ion-card>
+    <img src="./assets/m1.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Renewable vs. Non-Renewable Resources</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Renewable resources are naturally replenished on a human timescale. Solar energy, wind power, and other forms of natural energy are constantly available and can be harnessed for electricity. Fossil fuels, like coal, oil, and natural gas, take millions of years to form and are considered finite resources.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m2.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Understanding Greenhouse Gases</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Greenhouse gases trap heat in the atmosphere, contributing to global warming. Carbon dioxide is the most abundant greenhouse gas emitted through human activities like burning fossil fuels. While oxygen and nitrogen are essential atmospheric gases, they don't have the same heat-trapping effect as carbon dioxide.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m3.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>The Power of Composting</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Composting breaks down organic materials into usable compost. Eggshells and meat scraps (in small quantities) can be composted as they decompose naturally. However, plastic bags do not break down organically and can contaminate the compost.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m4.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Deforestation and Its Impact</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Trees play a vital role in the environment. Deforestation leads to increased soil erosion as tree roots no longer hold the soil in place. It also reduces biodiversity as animals lose their habitat. However, deforestation does not directly improve air quality. In fact, it can contribute to poorer air quality by reducing the number of trees that absorb carbon dioxide.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m5.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Conserving Water - Every Drop Counts!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Water conservation is essential for a sustainable future. Taking shorter showers reduces water usage compared to leaving the faucet running while brushing your teeth or watering the lawn every day.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="end-line">
+    <h1>Keep Learning, Keep Protecting Our Planet!</h1>
+    <p>This review module provides a brief explanation for each question you encountered in the quiz. Remember, a little knowledge goes a long way! Explore other resources within the EcoPinoy app to further your understanding of environmental issues and discover ways to make a positive difference.</p>
+    <button (click)="quiz()">Next Quiz</button>
+  </div>
 
 </ion-content>

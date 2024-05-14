@@ -1,13 +1,94 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>module5</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>
+      <div class="header-logo">
+        <img src="../assets/EcoPinoy_Logo.png" class="image1" alt="">
+      </div>
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button id="click-trigger">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding">You don't have any notification</ion-content>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">module5</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  
+  <div class="congratulations">
+    <h1>Congratulations on completing EcoPinoy's Environmental Quiz 5!</h1>
+    <p>You're well on your way to becoming an Energy Explorer. Let's delve deeper into the world of energy and explore ways to use it wisely!</p>
+  </div>
+
+  <ion-card>
+    <img src="./assets/m1-5.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Power Up with Knowledge </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>There are two main categories of energy sources we rely on: renewable and non-renewable. Renewable sources like solar, wind, and geothermal power can be replenished naturally. Non-renewable sources like coal, oil, and natural gas are finite and cannot be replaced once depleted.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m2-5.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Renewables - Powering Our Future</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p> Renewable energy sources offer a clean and sustainable alternative to non-renewable resources. Solar power harnesses the sun's energy to generate electricity, wind power uses the force of wind to turn turbines, and geothermal energy captures heat from the Earth's core. Investing in renewable energy sources is crucial for a sustainable future.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m3-5.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Understanding Greenhouse Gases</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Greenhouse gases trap heat in the atmosphere, contributing to global warming.  Carbon dioxide is the primary greenhouse gas emitted through human activities like burning fossil fuels for electricity and transportation.  By transitioning to clean energy sources and reducing our reliance on fossil fuels, we can help mitigate climate change.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m4-5.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Be an Energy-Conscious Hero</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Energy conservation starts at home!  Simple actions like unplugging electronics you're not using, turning off lights in empty rooms, and using energy-efficient appliances can significantly reduce your energy consumption.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m5-5.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>A Brighter Energy Future</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>The future of clean energy is promising! Technological advancements are making renewable energy sources more affordable and efficient.  By investing in research and development, we can create a cleaner and more sustainable energy future for generations to come.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="end-line">
+    <h1>Remember, you have the power to be an Energy Explorer!</h1>
+    <p>This review module has provided insights into energy sources and conservation practices. Explore more resources within the EcoPinoy app to discover additional ways to use energy wisely and advocate for a sustainable future. Together, we can power a brighter tomorrow!</p>
+    <button (click)="quiz()">Next Quiz</button>
+  </div>
+
 </ion-content>

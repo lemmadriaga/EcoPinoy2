@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { QuestionsService } from '@app/questions.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class QuizPage implements OnInit {
     this.hasQuizStarted = true;
   }
 
-  constructor(private service: QuestionsService) {
+  constructor(private service: QuestionsService, private router:Router) {
     this.questions = this.service.getQuestions();
     this.filteredQuestions = this.questions.filter(question => question.id === 1);
   }
@@ -72,4 +73,11 @@ setOpen(isOpen: boolean) {
     }, 5);
   }
 }
+
+
+module() {
+  this.router.navigateByUrl('/tabs/learning-center');
 }
+
+}
+

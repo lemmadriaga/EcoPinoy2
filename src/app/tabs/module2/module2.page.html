@@ -1,13 +1,95 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>module2</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>
+      <div class="header-logo">
+        <img src="../assets/EcoPinoy_Logo.png" class="image1" alt="">
+      </div>
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button id="click-trigger">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding">You don't have any notification</ion-content>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">module2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  
+  <div class="congratulations">
+    <h1>Congratulations on completing the EcoPinoy Environmental Quiz 2!</h1>
+    <p>Let's dive deeper into the fascinating world of nature's delicate balance and solidify your understanding of the concepts you encountered.</p>
+  </div>
+
+  <!-- Repeated content block start -->
+  <ion-card>
+    <img src="./assets/m1-2.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>The Power of Photosynthesis</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Photosynthesis is the foundation of life on Earth! Plants act as tiny factories, using sunlight as energy, water from the soil, and carbon dioxide from the air to create their food (sugar) and release oxygen as a byproduct. This oxygen is vital for us and many other living organisms to breathe.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m2-2.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Pollution - A Threat to Our Symphony</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Pollution disrupts our environment's balance, like a jarring note in a song. Land, air, and water pollution all harm ecosystems. Trash in a meadow, smog in the sky, or murky streams - these are all signs of pollution. Understanding these types is key to creating a cleaner planet.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m3-2.png" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Protecting Endangered Species</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Many incredible species are at risk of vanishing forever. Habitat loss, like a bulldozer in a rainforest, destroys their homes. Overhunting, like taking all the shells on the beach, shrinks their populations. Understanding these threats is vital to safeguarding Earth's amazing biodiversity.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m4-2.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>The Ozone Layer - Our Protective Shield</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>High above us, a vital layer in the Earth's atmosphere acts like a protective shield. This layer, called the Stratosphere, contains ozone, a gas that plays a crucial role in safeguarding life on Earth. Ozone acts like a filter, absorbing most of the harmful ultraviolet (UV) radiation from the sun. This protection is essential, as UV radiation can damage our skin and even contribute to health problems.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="./assets/m5-2.jpg" alt="Image description">
+    <ion-card-header>
+      <ion-card-title>Renewable Resources - Powering Our Future</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>As we move towards a sustainable future, renewable resources are like the harmonious notes that will create a beautiful symphony for our planet. Unlike fossil fuels, which are finite resources that take millions of years to form, renewable resources can be naturally replenished on a human timescale. Wind power is a fantastic example of a renewable resource. Wind turbines are like giant instruments that harness the power of moving air to generate electricity. This clean and sustainable alternative to fossil fuels helps us reduce our reliance on non-renewable resources and create a cleaner energy future.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="end-line">
+    <h1>Keep Exploring, Keep Protecting Our Planet!</h1>
+    <p>This review module has provided a deeper understanding of the topics covered in EcoPinoy's Environmental Quiz 2. Remember, every action you take, big or small, can contribute to a healthier planet. Explore more resources within the app to discover how you can be a part of the solution and help us create a beautiful and sustainable future for all!</p>
+    <button (click)="quiz()">Next Quiz</button>
+  </div>
+
 </ion-content>
